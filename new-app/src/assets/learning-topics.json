@@ -1,0 +1,98 @@
+{
+  "components": {
+    "title": "Angular Components",
+    "description": "Learn how to create and use Angular components - the building blocks of Angular applications.",
+    "exampleCode": "// Basic Angular Component\n@Component({\n  selector: 'app-example',\n  template: '<div>{{ message }}</div>'\n})\nexport class ExampleComponent {\n  message = 'Hello Angular!';\n}",
+    "explanation": [
+      "Components are the fundamental building blocks of Angular applications.",
+      "They combine HTML templates, CSS styles, and TypeScript logic.",
+      "Each component should have a single responsibility."
+    ],
+    "exercise": "Create a simple component that displays a user profile.",
+    "solution": "// User Profile Component\n@Component({\n  selector: 'app-user-profile',\n  template: '<div>{{ user.name }}</div>'\n})\nexport class UserProfileComponent {\n  user = { name: 'John Doe' };\n}"
+  },
+  "directives": {
+    "title": "Angular Directives",
+    "description": "Master Angular directives to manipulate the DOM and control rendering behavior.",
+    "exampleCode": "// Structural Directives\n<div *ngIf=\"isVisible\">Content</div>\n<li *ngFor=\"let item of items\">{{ item }}</li>\n\n// Attribute Directives\n<div [ngClass]=\"{'active': isActive}\">Content</div>",
+    "explanation": [
+      "Directives are classes that add behavior to elements.",
+      "Structural directives change the DOM structure.",
+      "Attribute directives change appearance or behavior."
+    ],
+    "exercise": "Create a custom directive that highlights text.",
+    "solution": "@Directive({\n  selector: '[appHighlight]'\n})\nexport class HighlightDirective {\n  @Input() highlightColor = 'yellow';\n}"
+  },
+  "services": {
+    "title": "Angular Services",
+    "description": "Learn how to create and inject services to share data and functionality across components.",
+    "exampleCode": "// Basic Service\n@Injectable({\n  providedIn: 'root'\n})\nexport class DataService {\n  getData() {\n    return ['item1', 'item2'];\n  }\n}",
+    "explanation": [
+      "Services are singleton objects that provide functionality.",
+      "They are typically used for data sharing and API calls.",
+      "Services are injected using dependency injection."
+    ],
+    "exercise": "Create a service that manages a shopping cart.",
+    "solution": "@Injectable({\n  providedIn: 'root'\n})\nexport class CartService {\n  private items: any[] = [];\n  \n  addItem(item: any) {\n    this.items.push(item);\n  }\n}"
+  },
+  "routing": {
+    "title": "Angular Routing",
+    "description": "Implement client-side routing to create single-page applications with multiple views.",
+    "exampleCode": "// Route Configuration\nconst routes: Routes = [\n  { path: 'home', component: HomeComponent },\n  { path: 'about', component: AboutComponent }\n];\n\n// Navigation\n<a routerLink=\"/home\">Home</a>",
+    "explanation": [
+      "Angular Router enables navigation between views.",
+      "Routes are defined in the routes array.",
+      "RouterLink directive is used for navigation."
+    ],
+    "exercise": "Create a routing configuration with multiple routes.",
+    "solution": "const routes: Routes = [\n  { path: '', redirectTo: '/home', pathMatch: 'full' },\n  { path: 'home', component: HomeComponent },\n  { path: 'about', component: AboutComponent }\n];"
+  },
+  "forms": {
+    "title": "Angular Forms",
+    "description": "Build reactive and template-driven forms for user input and validation.",
+    "exampleCode": "// Reactive Form\nthis.form = this.fb.group({\n  name: ['', Validators.required],\n  email: ['', Validators.email]\n});\n\n// Template\n<form [formGroup]=\"form\">\n  <input formControlName=\"name\">\n</form>",
+    "explanation": [
+      "Angular provides two approaches to forms.",
+      "Reactive forms offer more control.",
+      "Validators provide built-in validation rules."
+    ],
+    "exercise": "Create a registration form with validation.",
+    "solution": "this.registrationForm = this.fb.group({\n  username: ['', Validators.required],\n  email: ['', Validators.email]\n});"
+  },
+  "http": {
+    "title": "HTTP Client",
+    "description": "Make HTTP requests to APIs and handle responses using Angular's HttpClient.",
+    "exampleCode": "// HTTP Service\n@Injectable({\n  providedIn: 'root'\n})\nexport class ApiService {\n  constructor(private http: HttpClient) {}\n  \n  getData() {\n    return this.http.get('/api/data');\n  }\n}",
+    "explanation": [
+      "HttpClient provides a simplified API for HTTP requests.",
+      "It returns Observables for handling responses.",
+      "Error handling can be done using catchError operator."
+    ],
+    "exercise": "Create a service that fetches user data from an API.",
+    "solution": "@Injectable({\n  providedIn: 'root'\n})\nexport class UserService {\n  constructor(private http: HttpClient) {}\n  \n  getUsers() {\n    return this.http.get('/api/users');\n  }\n}"
+  },
+  "pipes": {
+    "title": "Angular Pipes",
+    "description": "Transform data in templates using built-in and custom pipes.",
+    "exampleCode": "// Built-in pipes\n<p>{{ name | uppercase }}</p>\n<p>{{ price | currency }}</p>\n\n// Custom pipe\n@Pipe({\n  name: 'custom'\n})\nexport class CustomPipe implements PipeTransform {\n  transform(value: any): any {\n    return value;\n  }\n}",
+    "explanation": [
+      "Pipes transform data in templates.",
+      "Angular provides many built-in pipes.",
+      "Custom pipes can be created for specific transformations."
+    ],
+    "exercise": "Create a custom pipe that formats phone numbers.",
+    "solution": "@Pipe({\n  name: 'phone'\n})\nexport class PhonePipe implements PipeTransform {\n  transform(value: string): string {\n    return value.replace(/(\\d{3})(\\d{3})(\\d{4})/, '($1) $2-$3');\n  }\n}"
+  },
+  "lifecycle": {
+    "title": "Lifecycle Hooks",
+    "description": "Understand and use Angular component lifecycle hooks to manage component behavior.",
+    "exampleCode": "// Lifecycle Hooks\nexport class MyComponent implements OnInit, OnDestroy {\n  ngOnInit() {\n    // Component initialized\n  }\n  \n  ngOnDestroy() {\n    // Component destroyed\n  }\n}",
+    "explanation": [
+      "Lifecycle hooks allow you to tap into key moments.",
+      "ngOnInit is called after initialization.",
+      "ngOnDestroy is called before destruction."
+    ],
+    "exercise": "Create a component that cleans up resources on destruction.",
+    "solution": "export class MyComponent implements OnInit, OnDestroy {\n  private intervalId: any;\n  \n  ngOnInit() {\n    this.intervalId = setInterval(() => {}, 1000);\n  }\n  \n  ngOnDestroy() {\n    if (this.intervalId) {\n      clearInterval(this.intervalId);\n    }\n  }\n}"
+  }
+}
