@@ -1,0 +1,260 @@
+.directives-topic {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.topic-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.topic-header h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.topic-description {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.content-body {
+    display: grid;
+    gap: 30px;
+}
+
+.example-section,
+.explanation-section,
+.interactive-section,
+.practice-section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.example-section h3,
+.explanation-section h3,
+.interactive-section h3,
+.practice-section h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 10px;
+}
+
+.code-block {
+    background: #2c3e50;
+    border-radius: 6px;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.code-block pre {
+    margin: 0;
+    color: #ecf0f1;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.explanation-content p {
+    color: #34495e;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.demo-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    border: 2px solid #e9ecef;
+}
+
+.demo-card h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.demo-content {
+    text-align: center;
+}
+
+.visible-content {
+    background: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #c3e6cb;
+}
+
+.demo-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+    font-size: 0.9rem;
+}
+
+.demo-btn:hover {
+    background: #c0392b;
+}
+
+.items-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.items-list li {
+    background: #fff;
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    border-left: 3px solid #e74c3c;
+}
+
+.demo-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.class-demo {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 2px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.class-demo.active {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+    transform: scale(1.02);
+}
+
+.custom-directive-demo {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    border: 2px solid #e9ecef;
+    margin-top: 20px;
+}
+
+.custom-directive-demo h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.highlight-demo {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.highlight-demo p {
+    background: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #dee2e6;
+}
+
+.color-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.color-btn {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+.color-btn:hover {
+    transform: scale(1.05);
+}
+
+.color-btn.yellow {
+    background: #f39c12;
+}
+
+.color-btn.green {
+    background: #27ae60;
+}
+
+.color-btn.pink {
+    background: #e91e63;
+}
+
+.color-btn.blue {
+    background: #3498db;
+}
+
+.practice-section .exercise {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 4px solid #e74c3c;
+}
+
+.exercise p {
+    color: #2c3e50;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.exercise-hint {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.exercise-hint h4 {
+    color: #856404;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.exercise-hint ul {
+    color: #856404;
+    margin: 0;
+    padding-left: 20px;
+}
+
+.exercise-hint li {
+    margin-bottom: 5px;
+    line-height: 1.4;
+}

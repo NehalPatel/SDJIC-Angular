@@ -1,0 +1,99 @@
+<div class="directives-topic">
+    <div class="topic-header">
+        <h1>Angular Directives</h1>
+        <p class="topic-description">
+            Master Angular directives to manipulate the DOM and control rendering behavior.
+        </p>
+    </div>
+
+    <div class="content-body">
+        <!-- Example code block removed due to Angular template parser issues -->
+
+        <div class="explanation-section">
+            <h3>Explanation</h3>
+            <div class="explanation-content">
+                <p>Directives are classes that add behavior to elements.</p>
+                <p>Structural directives change the DOM structure.</p>
+                <p>Attribute directives change appearance or behavior.</p>
+            </div>
+        </div>
+
+        <div class="interactive-section">
+            <h3>Interactive Directives Demo</h3>
+
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h4>*ngIf Directive</h4>
+                    <div class="demo-content">
+                        <div *ngIf="isVisible" class="visible-content">
+                            This content is visible!
+                        </div>
+                        <button class="demo-btn" (click)="toggleVisibility()">
+                            {{ isVisible ? 'Hide' : 'Show' }} Content
+                        </button>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <h4>*ngFor Directive</h4>
+                    <div class="demo-content">
+                        <ul class="items-list">
+                            <li *ngFor="let item of items; let i = index">
+                                {{ i + 1 }}. {{ item }}
+                            </li>
+                        </ul>
+                        <div class="demo-controls">
+                            <button class="demo-btn" (click)="addItem()">Add Item</button>
+                            <button class="demo-btn" (click)="removeItem()">Remove Item</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <h4>ngClass Directive</h4>
+                    <div class="demo-content">
+                        <div [ngClass]="{'active': isActive}" class="class-demo">
+                            This element changes class
+                        </div>
+                        <button class="demo-btn" (click)="toggleActive()">
+                            {{ isActive ? 'Deactivate' : 'Activate' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom-directive-demo">
+                <h4>Custom Highlight Directive</h4>
+                <button class="demo-btn" (click)="toggleHighlightDemo()">
+                    {{ showHighlightDemo ? 'Hide' : 'Show' }} Highlight Demo
+                </button>
+
+                <div *ngIf="showHighlightDemo" class="highlight-demo">
+                    <p [style.background-color]="highlightColor">{{ customText }}</p>
+                    <div class="color-controls">
+                        <button class="color-btn yellow" (click)="changeHighlightColor('yellow')">Yellow</button>
+                        <button class="color-btn green" (click)="changeHighlightColor('lightgreen')">Green</button>
+                        <button class="color-btn pink" (click)="changeHighlightColor('lightpink')">Pink</button>
+                        <button class="color-btn blue" (click)="changeHighlightColor('lightblue')">Blue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Exercise</h3>
+            <div class="exercise">
+                <p>Create a custom directive that highlights text with different colors.</p>
+                <div class="exercise-hint">
+                    <h4>Hint:</h4>
+                    <ul>
+                        <li>Use @Directive decorator</li>
+                        <li>Use ElementRef to access the element</li>
+                        <li>Add @Input() for color configuration</li>
+                        <li>Use HostListener for mouse events</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="components-topic">
+    <div class="topic-header">
+        <h1>Angular Components</h1>
+        <p class="topic-description">
+            Learn how to create and use Angular components - the building blocks of Angular applications.
+        </p>
+    </div>
+
+    <div class="content-body">
+        <!-- Example code block removed due to Angular template parser issues -->
+
+        <div class="explanation-section">
+            <h3>Explanation</h3>
+            <div class="explanation-content">
+                <p>Components are the fundamental building blocks of Angular applications.</p>
+                <p>They combine HTML templates, CSS styles, and TypeScript logic.</p>
+                <p>Each component should have a single responsibility.</p>
+            </div>
+        </div>
+
+        <div class="interactive-section">
+            <h3>Interactive Example</h3>
+            <button class="interactive-btn" (click)="toggleInteractiveExample()">
+                {{ showInteractiveExample ? 'Hide' : 'Show' }} Interactive Example
+            </button>
+
+            <div class="interactive-demo" *ngIf="showInteractiveExample">
+                <div class="demo-container">
+                    <h4>Live Component Demo</h4>
+                    <div class="demo-component">
+                        <div class="container">
+                            <h5>Example Component</h5>
+                            <p>This is a live example of an Angular component!</p>
+                            <button class="demo-btn">Click me!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Exercise</h3>
+            <div class="exercise">
+                <p>Create a simple component that displays a user profile with name, email, and avatar.</p>
+                <div class="exercise-hint">
+                    <h4>Hint:</h4>
+                    <ul>
+                        <li>Use the @Component decorator</li>
+                        <li>Define a template with user data</li>
+                        <li>Add some basic styling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

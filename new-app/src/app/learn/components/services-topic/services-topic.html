@@ -1,0 +1,98 @@
+<div class="services-topic">
+    <div class="topic-header">
+        <h1>Angular Services</h1>
+        <p class="topic-description">
+            Learn how to create and inject services to share data and functionality across components.
+        </p>
+    </div>
+
+    <div class="content-body">
+        <!-- Example code block removed due to Angular template parser issues -->
+
+        <div class="explanation-section">
+            <h3>Explanation</h3>
+            <div class="explanation-content">
+                <p>Services are singleton objects that provide functionality.</p>
+                <p>They are typically used for data sharing and API calls.</p>
+                <p>Services are injected using dependency injection.</p>
+            </div>
+        </div>
+
+        <div class="interactive-section">
+            <h3>Interactive Service Demo</h3>
+            <button class="demo-btn" (click)="toggleServiceDemo()">
+                {{ showServiceDemo ? 'Hide' : 'Show' }} Service Demo
+            </button>
+
+            <div *ngIf="showServiceDemo" class="service-demo">
+                <div class="demo-grid">
+                    <div class="demo-panel">
+                        <h4>User Service</h4>
+                        <div class="service-controls">
+                            <button class="control-btn" (click)="loadUsers()" [disabled]="isLoading">
+                                {{ isLoading ? 'Loading...' : 'Load Users' }}
+                            </button>
+                            <button class="control-btn" (click)="addUser()">Add User</button>
+                        </div>
+
+                        <div class="users-list" *ngIf="users.length > 0">
+                            <div class="user-item" *ngFor="let user of users"
+                                [class.selected]="currentUser?.id === user.id" (click)="selectUser(user)">
+                                <div class="user-info">
+                                    <strong>{{ user.name }}</strong>
+                                    <span class="user-email">{{ user.email }}</span>
+                                </div>
+                                <button class="remove-btn" (click)="removeUser(user); $event.stopPropagation()">
+                                    ×
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="loading-spinner" *ngIf="isLoading">
+                            <div class="spinner"></div>
+                            <p>Loading users...</p>
+                        </div>
+                    </div>
+
+                    <div class="demo-panel">
+                        <h4>Service Logs</h4>
+                        <div class="logs-container">
+                            <div class="log-entry" *ngFor="let log of serviceLogs">
+                                {{ log }}
+                            </div>
+                            <div class="no-logs" *ngIf="serviceLogs.length === 0">
+                                No logs yet. Start interacting with the service!
+                            </div>
+                        </div>
+                        <button class="control-btn" (click)="clearLogs()">Clear Logs</button>
+                    </div>
+                </div>
+
+                <div class="selected-user" *ngIf="currentUser">
+                    <h4>Selected User Details</h4>
+                    <div class="user-details">
+                        <p><strong>ID:</strong> {{ currentUser.id }}</p>
+                        <p><strong>Name:</strong> {{ currentUser.name }}</p>
+                        <p><strong>Email:</strong> {{ currentUser.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Exercise</h3>
+            <div class="exercise">
+                <p>Create a service that manages a shopping cart with add, remove, and total calculation methods.</p>
+                <div class="exercise-hint">
+                    <h4>Hint:</h4>
+                    <ul>
+                        <li>Use @Injectable decorator</li>
+                        <li>Create methods for addItem, removeItem, getTotal</li>
+                        <li>Use BehaviorSubject for reactive updates</li>
+                        <li>Inject the service in your component</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

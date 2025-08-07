@@ -1,0 +1,95 @@
+<div class="routing-topic">
+    <div class="topic-header">
+        <h1>Angular Routing</h1>
+        <p class="topic-description">
+            Implement client-side routing to create single-page applications with multiple views.
+        </p>
+    </div>
+
+    <div class="content-body">
+        <!-- Example code block removed due to Angular template parser issues -->
+
+        <div class="explanation-section">
+            <h3>Explanation</h3>
+            <div class="explanation-content">
+                <p>Angular Router enables navigation between views without page reloads.</p>
+                <p>Routes are defined in the routes array with path and component mappings.</p>
+                <p>RouterLink directive is used for declarative navigation in templates.</p>
+                <p>Router service provides programmatic navigation capabilities.</p>
+            </div>
+        </div>
+
+        <div class="interactive-section">
+            <h3>Interactive Routing Demo</h3>
+            <button class="demo-btn" (click)="toggleRouteDemo()">
+                {{ showRouteDemo ? 'Hide' : 'Show' }} Routing Demo
+            </button>
+
+            <div *ngIf="showRouteDemo" class="routing-demo">
+                <div class="demo-grid">
+                    <div class="demo-panel">
+                        <h4>Route Configuration</h4>
+                        <div class="routes-list">
+                            <div class="route-item" *ngFor="let route of routes">
+                                <div class="route-info">
+                                    <strong>{{ route.path }}</strong>
+                                    <span class="route-component">{{ route.component }}</span>
+                                    <span class="route-description">{{ route.description }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-panel">
+                        <h4>Navigation</h4>
+                        <div class="navigation-buttons">
+                            <button class="nav-btn" *ngFor="let route of routes"
+                                [class.active]="currentRoute === route.path" (click)="navigateTo(route.path)">
+                                {{ route.path.substring(1) | titlecase }}
+                            </button>
+                        </div>
+
+                        <div class="current-route" *ngIf="getCurrentRouteInfo()">
+                            <h5>Current Route:</h5>
+                            <div class="route-details">
+                                <p><strong>Path:</strong> {{ getCurrentRouteInfo()?.path }}</p>
+                                <p><strong>Component:</strong> {{ getCurrentRouteInfo()?.component }}</p>
+                                <p><strong>Description:</strong> {{ getCurrentRouteInfo()?.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-history">
+                    <h4>Navigation History</h4>
+                    <div class="history-list">
+                        <div class="history-item" *ngFor="let path of navigationHistory; let i = index">
+                            <span class="history-number">{{ i + 1 }}</span>
+                            <span class="history-path">{{ path }}</span>
+                        </div>
+                        <div class="no-history" *ngIf="navigationHistory.length === 0">
+                            No navigation history yet. Start navigating!
+                        </div>
+                    </div>
+                    <button class="control-btn" (click)="clearHistory()">Clear History</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Exercise</h3>
+            <div class="exercise">
+                <p>Create a routing configuration with multiple routes including a default route and a 404 page.</p>
+                <div class="exercise-hint">
+                    <h4>Hint:</h4>
+                    <ul>
+                        <li>Define routes array with path and component mappings</li>
+                        <li>Use redirectTo for default route</li>
+                        <li>Add wildcard route for 404 handling</li>
+                        <li>Use RouterModule.forRoot() in your app module</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

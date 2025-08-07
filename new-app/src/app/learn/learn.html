@@ -2,35 +2,35 @@
     <div class="sidebar">
         <h3>Angular Learning Examples</h3>
         <nav class="learning-nav">
-            <a href="#components" class="nav-item active" (click)="selectTopic('components', $event)">
+            <a routerLink="components" routerLinkActive="active" class="nav-item">
                 <span class="icon">🧩</span>
                 Components
             </a>
-            <a href="#directives" class="nav-item" (click)="selectTopic('directives', $event)">
+            <a routerLink="directives" routerLinkActive="active" class="nav-item">
                 <span class="icon">🎯</span>
                 Directives
             </a>
-            <a href="#services" class="nav-item" (click)="selectTopic('services', $event)">
+            <a routerLink="services" routerLinkActive="active" class="nav-item">
                 <span class="icon">⚙️</span>
                 Services
             </a>
-            <a href="#routing" class="nav-item" (click)="selectTopic('routing', $event)">
+            <a routerLink="routing" routerLinkActive="active" class="nav-item">
                 <span class="icon">🛣️</span>
                 Routing
             </a>
-            <a href="#forms" class="nav-item" (click)="selectTopic('forms', $event)">
+            <a routerLink="forms" routerLinkActive="active" class="nav-item">
                 <span class="icon">📝</span>
                 Forms
             </a>
-            <a href="#http" class="nav-item" (click)="selectTopic('http', $event)">
+            <a routerLink="http" routerLinkActive="active" class="nav-item">
                 <span class="icon">🌐</span>
                 HTTP Client
             </a>
-            <a href="#pipes" class="nav-item" (click)="selectTopic('pipes', $event)">
+            <a routerLink="pipes" routerLinkActive="active" class="nav-item">
                 <span class="icon">🔧</span>
                 Pipes
             </a>
-            <a href="#lifecycle" class="nav-item" (click)="selectTopic('lifecycle', $event)">
+            <a routerLink="lifecycle" routerLinkActive="active" class="nav-item">
                 <span class="icon">🔄</span>
                 Lifecycle Hooks
             </a>
@@ -38,51 +38,6 @@
     </div>
 
     <div class="main-content">
-        <div *ngIf="isLoading" class="loading-container">
-            <div class="loading-spinner"></div>
-            <p>Loading learning content...</p>
-        </div>
-
-        <div *ngIf="!isLoading && errorMessage" class="error-container">
-            <div class="error-icon">⚠️</div>
-            <h3>Error Loading Content</h3>
-            <p>{{ errorMessage }}</p>
-            <button class="retry-btn" (click)="loadLearningTopics()">Retry</button>
-        </div>
-
-        <div *ngIf="!isLoading && !errorMessage && currentTopic" class="content-wrapper">
-            <div class="content-header">
-                <h1>{{ currentTopic.title }}</h1>
-                <p class="topic-description">{{ currentTopic.description }}</p>
-            </div>
-
-            <div class="content-body">
-                <div class="example-section">
-                    <h3>Example Code</h3>
-                    <div class="code-block">
-                        <pre><code>{{ currentTopic.exampleCode }}</code></pre>
-                    </div>
-                </div>
-
-                <div class="explanation-section">
-                    <h3>Explanation</h3>
-                    <div class="explanation-content">
-                        <p *ngFor="let paragraph of currentTopic.explanation">{{ paragraph }}</p>
-                    </div>
-                </div>
-
-                <div class="practice-section">
-                    <h3>Practice Exercise</h3>
-                    <div class="exercise">
-                        <p>{{ currentTopic.exercise }}</p>
-                        <button class="practice-btn" (click)="showSolution()">Show Solution</button>
-                        <div class="solution" *ngIf="showSolutionFlag">
-                            <h4>Solution:</h4>
-                            <pre><code>{{ currentTopic.solution }}</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <router-outlet></router-outlet>
     </div>
 </div>

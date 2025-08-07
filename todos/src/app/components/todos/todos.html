@@ -1,0 +1,10 @@
+<div class="todos-container">
+    <h2>Todo List</h2>
+    <input type="text" [(ngModel)]="newTodo" />
+    <button (click)="addTodo()">Add</button>
+    <ul>
+        <li *ngFor="let todo of todos; let i = index">
+            {{ todo }}
+        </li>
+    </ul>
+</div>
