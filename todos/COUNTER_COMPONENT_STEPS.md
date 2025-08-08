@@ -7,6 +7,27 @@
 2. **Implement the Counter Logic**
    - Open `src/app/components/counter/counter.ts`.
    - Add a `count` property and `increment`/`decrement` methods.
+   ```javascript
+   import { Component } from '@angular/core';
+
+   @Component({
+      selector: 'app-counter',
+      imports: [],
+      templateUrl: './counter.html',
+      styleUrl: './counter.css'
+   })
+   export class Counter {
+      count = 0;
+
+      increment() {
+         this.count++;
+      }
+
+      decrement() {
+         this.count--;
+      }
+   }
+   ```
 
 3. **Create the Counter Template**
    - Edit `src/app/components/counter/counter.html`:
