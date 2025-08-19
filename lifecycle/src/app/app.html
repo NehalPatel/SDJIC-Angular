@@ -1,0 +1,14 @@
+<h1>Angular Lifecycle Hooks Demo</h1>
+<div style="margin: 20px;">
+  <h2>Lifecycle Demo Component</h2>
+
+  <div style="margin-top: 20px;">
+    <button (click)="incrementCounter()">Increment Counter</button>
+    <input [(ngModel)]="inputUsername" placeholder="Enter username" />
+    <p>Current input values: counter={{ counter }}, username={{ inputUsername }}</p>
+  </div>
+
+
+  <app-lifecycle-demo [counter]="counter" [username]="inputUsername">
+  </app-lifecycle-demo>
+</div>

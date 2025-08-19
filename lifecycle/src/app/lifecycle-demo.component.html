@@ -1,0 +1,12 @@
+<div style="border:1px solid #ccc; padding:1rem; margin:1rem 0;">
+    <h2>Lifecycle Demo Component</h2>
+    <p>Open the console to see lifecycle hook logs.</p>
+    <p><strong>Counter:</strong> {{ counter }}</p>
+    <button (click)="changeCounter()">Change Counter (Internal - No ngOnChanges)</button>
+
+    <hr />
+    <label for="username">Username:</label>
+    <input id="username" type="text" [(ngModel)]="username" placeholder="Enter username" />
+    <p><strong>Current username:</strong> {{ username }}</p>
+    <button (click)="changeUsername()">Change Username (Internal - No ngOnChanges)</button>
+</div>
