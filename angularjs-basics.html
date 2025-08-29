@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en" ng-app="BasicsApp">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AngularJS Basics</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #ffffff;
+            --fg: #0f172a;
+            --muted: #64748b;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --accent: #2563eb;
+            --accent-weak: #dbeafe;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0b1020;
+                --fg: #e5e7eb;
+                --muted: #9aa6b2;
+                --card: #121a2f;
+                --border: #24314d;
+                --accent: #60a5fa;
+                --accent-weak: #0b2447;
+            }
+        }
+
+        body {
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            max-width: 960px;
+            line-height: 1.6;
+            background: var(--bg);
+            color: var(--fg);
+        }
+
+        h1 {
+            letter-spacing: -0.02em;
+            font-size: 1.85rem;
+            margin: 0 0 0.75rem;
+        }
+
+        h2 {
+            margin: 0 0 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .card {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        input,
+        select,
+        button {
+            font: inherit;
+            padding: 0.55rem 0.65rem;
+            margin: 0.25rem 0;
+            color: inherit;
+        }
+
+        input,
+        select {
+            border: 1px solid var(--border);
+            background: transparent;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 160ms ease, box-shadow 160ms ease;
+            width: max(180px, 20ch);
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 20%, transparent);
+        }
+
+        button {
+            border: 1px solid var(--accent);
+            background: var(--accent);
+            color: #fff;
+            border-radius: 10px;
+            padding: 0.55rem 0.9rem;
+            cursor: pointer;
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--card);
+        }
+
+        th,
+        td {
+            border-top: 1px solid var(--border);
+            padding: 0.6rem 0.7rem;
+            text-align: left;
+        }
+
+        thead th {
+            background: var(--accent-weak);
+            color: var(--fg);
+            border-top: none;
+        }
+
+        tbody tr:nth-child(even) td {
+            background: color-mix(in oklab, var(--accent-weak) 35%, transparent);
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+            background: var(--accent-weak);
+            color: var(--accent);
+            border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+    </style>
+</head>
+
+<body ng-controller="MainController as vm">
+    <h1>AngularJS Basics</h1>
+    <p class="muted">Live data-binding, lists, filters, and simple conditionals.</p>
+
+    <section class="card">
+        <h2>Two-way data binding</h2>
+        <label>
+            Your name:
+            <input type="text" ng-model="vm.userName" placeholder="Type your name" />
+        </label>
+        <p>Hello, <strong>{{ vm.userName || 'friend' }}</strong>!</p>
+    </section>
+
+    <section class="card">
+        <h2>Simple calculator</h2>
+        <div>
+            <input type="number" ng-model="vm.a" placeholder="a" />
+            <select ng-model="vm.op">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="number" ng-model="vm.b" placeholder="b" />
+            <span>= <strong>{{ vm.calculate() }}</strong></span>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>List rendering with filters</h2>
+        <div>
+            <input type="text" ng-model="vm.query" placeholder="Filter by title" />
+            <select ng-model="vm.sortBy">
+                <option value="title">Title (A→Z)</option>
+                <option value="-priority">Priority (high→low)</option>
+            </select>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="todo in vm.todos | filter:{ title: vm.query } | orderBy: vm.sortComparator">
+                    <td>{{$index + 1}}</td>
+                    <td>{{ todo.title }}</td>
+                    <td><span class="pill">{{ todo.priority }}</span></td>
+                    <td>
+                        <label>
+                            <input type="checkbox" ng-model="todo.done" />
+                            <span ng-class="{muted: !todo.done}">{{ todo.done ? 'Done' : 'Pending' }}</span>
+                        </label>
+                    </td>
+                </tr>
+                <tr ng-if="(vm.todos | filter:{ title: vm.query }).length === 0">
+                    <td colspan="4" class="muted">No results</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="card">
+        <h2>Conditional rendering</h2>
+        <label>
+            <input type="checkbox" ng-model="vm.showDetails" /> Show details
+        </label>
+        <div ng-show="vm.showDetails">
+            <p>
+                AngularJS binds inputs to models via <code>ng-model</code> and renders values with
+                <code>{{ '{{ expression }}' }}</code> syntax. Collections render with <code>ng-repeat</code>.
+            </p>
+        </div>
+    </section>
+
+    <script>
+        (function () {
+            'use strict';
+
+            angular
+                .module('BasicsApp', [])
+                .controller('MainController', function () {
+                    var vm = this;
+
+                    vm.userName = '';
+
+                    vm.a = 2;
+                    vm.b = 3;
+                    vm.op = '+';
+                    vm.calculate = function () {
+                        var a = Number(vm.a);
+                        var b = Number(vm.b);
+                        switch (vm.op) {
+                            case '+': return a + b;
+                            case '-': return a - b;
+                            case '*': return a * b;
+                            case '/': return b !== 0 ? (a / b) : '∞';
+                            default: return '';
+                        }
+                    };
+
+                    vm.todos = [
+                        { title: 'Learn directives', priority: 'high', done: false },
+                        { title: 'Practice data-binding', priority: 'medium', done: true },
+                        { title: 'Build a demo app', priority: 'low', done: false }
+                    ];
+
+                    var priorityRank = { high: 3, medium: 2, low: 1 };
+                    vm.sortBy = 'title';
+                    vm.sortComparator = function (item) {
+                        if (vm.sortBy === 'title') return item.title;
+                        if (vm.sortBy === '-priority') return -priorityRank[item.priority];
+                        return item.title;
+                    };
+
+                    vm.showDetails = true;
+                });
+        })();
+    </script>
+</body>
+
+</html>
