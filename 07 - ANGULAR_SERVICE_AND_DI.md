@@ -1,3 +1,8 @@
+## Definitions
+
+- **Service**: A reusable class that encapsulates focused logic or state (e.g., data access, business rules, utilities). Services are typically marked with `@Injectable()` so Angular can create and inject them where needed.
+- **Dependency Injection (DI)**: A design pattern where an external system (Angular's injector) supplies an object's dependencies instead of the object creating them itself. This improves modularity, testability, and reuse. In Angular, you declare dependencies (e.g., services) in constructors or via `inject()`, and the injector provides instances based on configured providers.
+
 ## Movie Subscription App — Step 1: Project and Basic Components
 
 This step guides students to create a new Angular project for a Movie Subscription app, then build two independent components (`Header` and `Menu`) each with its own Subscribe button and click handler.
