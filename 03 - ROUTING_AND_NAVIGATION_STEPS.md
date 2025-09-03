@@ -4,16 +4,16 @@ Set up basic routing with a few pages and a simple layout. No params, no lazy lo
 
 ### 1) Create a new Angular project
 ```bash
-ng new routing-demo --standalone --routing --style=css
+ng new routing-demo
 cd routing-demo
 ```
 
 ### 2) Generate pages (standalone components)
 ```bash
-ng g c pages/home --standalone
-ng g c pages/about --standalone
-ng g c pages/contact --standalone
-ng g c pages/services --standalone
+ng g c pages/home
+ng g c pages/about
+ng g c pages/contact
+ng g c pages/services
 ```
 
 ### 2.1) Add basic HTML to each page
@@ -59,9 +59,9 @@ export const routes: Routes = [
 
 ### 4) Add layout components (Header, Menu, Footer)
 ```bash
-ng g c layout/header --standalone
-ng g c layout/menu --standalone
-ng g c layout/footer --standalone
+ng g c layout/header
+ng g c layout/menu
+ng g c layout/footer
 ```
 Add simple HTML:
 ```html

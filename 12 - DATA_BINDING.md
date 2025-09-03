@@ -70,14 +70,13 @@ import { Component } from '@angular/core';
 export class ExampleComponent {
   userName = 'Sana';
   unread = 3;
-  get greeting() { return `Welcome, ${this.userName}!`; }
 }
 ```
 
 Template (`example.component.html`):
 
 ```html
-<h3>{{ greeting }}</h3>
+<h3>Good Morning, {{ userName }}</h3>
 <p>You have {{ unread }} unread messages.</p>
 ```
 
@@ -132,5 +131,3 @@ Note: `[(ngModel)]` requires importing `FormsModule` (see setup above).
 - Add an input for `firstName` with `[(ngModel)]` and show `Hello, {{ firstName }}`.
 - Add a button that calls `(click)` to increase a `likes` counter with interpolation display.
 - Disable a submit button with `[disabled]` when `firstName` is empty.
-
-
