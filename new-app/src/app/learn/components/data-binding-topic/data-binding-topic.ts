@@ -25,7 +25,7 @@ export class DataBindingTopicComponent {
     }
 
     // Two-way binding example
-    favoriteMovie = '';
+    favoriteMovie = 'ABCD 2';
 
     // Mini exercise properties
     firstName = '';

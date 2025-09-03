@@ -12,7 +12,7 @@ import { TruncatePipe } from './truncate.pipe';
 })
 export class PipesTopicComponent {
     // Example data for pipes
-    name = 'sana khan';
+    name = 'Devashya Patel';
     amount = 1234.5;
     ratio = 0.3567;
     today = new Date();
@@ -20,7 +20,7 @@ export class PipesTopicComponent {
     longText = 'This is a long sentence that needs to be truncated';
 
     // Data for custom pipe demo
-    fullName = 'sana khan';
+    fullName = 'Krishna Jariwala';
 
     // Text to highlight
     textToHighlight = 'This text will be highlighted';

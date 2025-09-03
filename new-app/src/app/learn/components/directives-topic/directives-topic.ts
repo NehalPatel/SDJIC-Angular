@@ -13,7 +13,7 @@ export class DirectivesTopicComponent implements OnInit {
     isVisible = true;
     items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
     isActive = false;
-    selectedFruit: string = 'apple';
+    selectedFruit: string = 'orange';
     highlightColor = 'yellow';
     customText = 'This text can be highlighted!';
     showHighlightDemo = false;
