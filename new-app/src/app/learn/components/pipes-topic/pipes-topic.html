@@ -1,0 +1,62 @@
+<div class="pipes-container">
+    <h2>Pipes Examples</h2>
+    <section>
+        <h3>Types of Pipes in Angular</h3>
+        <ul>
+            <li><strong>Built-in Pipes:</strong> Provided by Angular, such as <code>uppercase</code>,
+                <code>lowercase</code>, <code>currency</code>, <code>date</code>, <code>percent</code>,
+                <code>slice</code>, and <code>json</code>.
+            </li>
+            <li><strong>Custom Pipes:</strong> Created by developers to implement specific formatting or transformation
+                logic.</li>
+        </ul>
+        <p>
+            <strong>Explanation:</strong> Pipes are simple functions used in Angular templates to transform data before
+            displaying it to the user. They help format values such as strings, numbers, dates, and arrays directly in
+            the HTML, making the code cleaner and more readable.
+        </p>
+    </section>
+
+    <section>
+        <h3>Text Case Pipes</h3>
+        <p>Original: {{ name }}</p>
+        <p>Uppercase: {{ name | uppercase }}</p>
+        <p>Lowercase: {{ name | lowercase }}</p>
+        <p>Titlecase: {{ name | titlecase }}</p>
+    </section>
+
+    <section>
+        <h3>Number Formatting</h3>
+        <p>Amount: {{ amount | currency }}</p>
+        <p>Euro: {{ amount | currency:'EUR':'symbol' }}</p>
+        <p>Percentage: {{ ratio | percent }}</p>
+        <p>Precise Percentage: {{ ratio | percent:'1.1-2' }}</p>
+    </section>
+
+    <section>
+        <h3>Date Formatting</h3>
+        <p>Default: {{ today | date }}</p>
+        <p>Short: {{ today | date:'short' }}</p>
+        <p>Custom: {{ today | date:'MMM d, y, h:mm a' }}</p>
+    </section>
+
+    <section>
+        <h3>Array Slice</h3>
+        <p>Original array: {{ items | json }}</p>
+        <ul>
+            <li *ngFor="let item of items | slice:0:2">{{ item }}</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Custom Pipes Examples</h3>
+        <p>Initials: {{ fullName | initials }}</p>
+        <p>Truncated: {{ longText | truncate:20:'...' }}</p>
+    </section>
+
+    <section>
+        <h3>Initials Pipe Example</h3>
+        <p>Name: Nehal Patel</p>
+        <p>Initials: {{ 'Nehal Patel' | initials }}</p> <!-- Will display: NP -->
+    </section>
+</div>

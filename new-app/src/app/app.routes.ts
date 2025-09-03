@@ -6,6 +6,7 @@ import { Home } from './home/home';
 import { ComponentsTopicComponent } from './learn/components/components-topic/components-topic';
 import { DataBindingTopicComponent } from './learn/components/data-binding-topic/data-binding-topic';
 import { DirectivesTopicComponent } from './learn/components/directives-topic/directives-topic';
+import { PipesTopicComponent } from './learn/components/pipes-topic/pipes-topic';
 import { RoutingTopicComponent } from './learn/components/routing-topic/routing-topic';
 import { ServicesTopicComponent } from './learn/components/services-topic/services-topic';
 import { Learn } from './learn/learn';
@@ -24,6 +25,7 @@ export const routes: Routes = [
       { path: 'services', component: ServicesTopicComponent },
       { path: 'routing', component: RoutingTopicComponent },
       { path: 'data-binding', component: DataBindingTopicComponent },
+      { path: 'pipes', component: PipesTopicComponent },
       // Add more topics here as needed
       { path: '', redirectTo: 'components', pathMatch: 'full' }
     ]
