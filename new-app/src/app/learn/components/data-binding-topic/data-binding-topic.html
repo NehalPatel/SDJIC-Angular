@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Data Binding Examples</h2>
+
+    <!-- Interpolation -->
+    <section>
+        <h3>Interpolation Example</h3>
+        <h4>Good Morning, {{ userName }}</h4>
+        <p>You have {{ unread }} unread messages.</p>
+    </section>
+
+    <!-- Property Binding -->
+    <section>
+        <h3>Property Binding Example</h3>
+        <img [src]="imageUrl" [alt]="'Angular Logo'" />
+        <button [disabled]="isDisabled">Save</button>
+    </section>
+
+    <!-- Event Binding -->
+    <section>
+        <h3>Event Binding Example</h3>
+        <button (click)="onIncrement(1)">+1</button>
+        <span>Count: {{ count }}</span>
+    </section>
+
+    <!-- Two-way Binding -->
+    <section>
+        <h3>Two-way Binding Example</h3>
+        <input [(ngModel)]="favoriteMovie" placeholder="Your favorite movie" />
+        <p>You typed: {{ favoriteMovie }}</p>
+    </section>
+
+    <!-- Mini Exercise -->
+    <section>
+        <h3>Mini Exercise</h3>
+        <input [(ngModel)]="firstName" placeholder="Enter your first name" />
+        <p>Hello, {{ firstName }}</p>
+        <button (click)="incrementLikes()">Like</button>
+        <p>Likes: {{ likes }}</p>
+        <button [disabled]="!firstName">Submit</button>
+    </section>
+</div>

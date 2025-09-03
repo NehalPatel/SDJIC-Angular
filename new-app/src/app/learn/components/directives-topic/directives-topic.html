@@ -48,6 +48,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="demo-card">
+                    <h4>ngSwitch Directive</h4>
+                    <div class="demo-content">
+                        <label for="fruit-select">Choose a fruit:</label>
+                        <select id="fruit-select" [(ngModel)]="selectedFruit">
+                            <option value="apple">Apple</option>
+                            <option value="banana">Banana</option>
+                            <option value="orange">Orange</option>
+                            <option value="none">None</option>
+                        </select>
+                        <div [ngSwitch]="selectedFruit" class="switch-demo">
+                            <div *ngSwitchCase="'apple'">You selected Apple 🍎</div>
+                            <div *ngSwitchCase="'banana'">You selected Banana 🍌</div>
+                            <div *ngSwitchCase="'orange'">You selected Orange 🍊</div>
+                            <div *ngSwitchDefault>Please select a fruit.</div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="demo-card">
                     <h4>ngClass Directive</h4>
@@ -58,6 +76,39 @@
                         <button class="demo-btn" (click)="toggleActive()">
                             {{ isActive ? 'Deactivate' : 'Activate' }}
                         </button>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <h4>ngStyle Directive</h4>
+                    <div class="demo-content">
+                        <div [ngStyle]="{'color': textColor, 'font-size.px': fontSize, 'fontWeight': fontWeight}"
+                            class="style-demo">
+                            This text changes style dynamically!
+                        </div>
+                        <div class="style-controls">
+                            <label>
+                                Color:
+                                <select [(ngModel)]="textColor">
+                                    <option value="black">Black</option>
+                                    <option value="red">Red</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="green">Green</option>
+                                </select>
+                            </label>
+                            <label>
+                                Font Size:
+                                <input type="number" [(ngModel)]="fontSize" min="12" max="48" />
+                            </label>
+                            <label>
+                                Font Weight:
+                                <select [(ngModel)]="fontWeight">
+                                    <option value="normal">Normal</option>
+                                    <option value="bold">Bold</option>
+                                    <option value="lighter">Lighter</option>
+                                </select>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -3,12 +3,13 @@ import { About } from './about/about';
 import { Contact } from './contact/contact';
 import { Courses } from './courses/courses';
 import { Home } from './home/home';
+import { ComponentsTopicComponent } from './learn/components/components-topic/components-topic';
+import { DataBindingTopicComponent } from './learn/components/data-binding-topic/data-binding-topic';
+import { DirectivesTopicComponent } from './learn/components/directives-topic/directives-topic';
+import { RoutingTopicComponent } from './learn/components/routing-topic/routing-topic';
+import { ServicesTopicComponent } from './learn/components/services-topic/services-topic';
 import { Learn } from './learn/learn';
 import { Resources } from './resources/resources';
-import { ComponentsTopicComponent } from './learn/components/components-topic/components-topic';
-import { DirectivesTopicComponent } from './learn/components/directives-topic/directives-topic';
-import { ServicesTopicComponent } from './learn/components/services-topic/services-topic';
-import { RoutingTopicComponent } from './learn/components/routing-topic/routing-topic';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, //redirect to home page
@@ -22,6 +23,7 @@ export const routes: Routes = [
       { path: 'directives', component: DirectivesTopicComponent },
       { path: 'services', component: ServicesTopicComponent },
       { path: 'routing', component: RoutingTopicComponent },
+      { path: 'data-binding', component: DataBindingTopicComponent },
       // Add more topics here as needed
       { path: '', redirectTo: 'components', pathMatch: 'full' }
     ]
